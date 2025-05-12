@@ -20,6 +20,7 @@ const Container = styled.div`
     outline: none;
   }
 `;
+
 const Cell = styled.div`
   background-color: white;
   color: #0d1d2c;
@@ -30,41 +31,52 @@ const Cell = styled.div`
   border-radius: 2px;
   border: 1px solid #e6e8e9;
   align-items: center;
-  font-weight: normal;
   justify-content: space-between;
   border-right: 4px solid ${(props) => (props.isExpense ? "red" : "green")};
 `;
 
+const DeleteButton = styled.button`
+  background: red;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-left: 8px;
+  cursor: pointer;
+`;
 
-const TransactionCell = (props) => {
-  return (
-    <Cell isExpense={props.payload?.type === "EXPENSE"}>
-      <span>{props.payload?.desc}</span>
-      <span>₹{props.payload?.amount}</span>
-    </Cell>
-  );
-};
+const TransactionCell = ({ payload, onDelete }) => (
+  <Cell isExpense={payload?.type === "EXPENSE"}>
+    <div>
+      <div>{payload.desc}</div>
+      <div style={{ fontSize: "12px", color: "#888" }}>{payload.date}</div>
+    </div>
+    <div>
+      ₹{payload.amount}
+      <DeleteButton onClick={() => onDelete(payload.id)}>Delete</DeleteButton>
+    </div>
+  </Cell>
+);
 
-
-const Transaction = (props) => {
+const Transaction = ({ transactions, deleteTransaction }) => {
   const [searchText, updateSearchText] = useState("");
-  const [filteredTransaction, updateTxn] = useState(props.transactions);
+  const [filteredTransaction, updateTxn] = useState(transactions);
 
-  const filterData = (searchText) => {
-    if (!searchText || !searchText.trim().length) {
-      updateTxn(props.transactions);
+  const filterData = (text) => {
+    if (!text.trim()) {
+      updateTxn(transactions);
       return;
     }
-    let txn = [...props.transactions];
-    txn = txn.filter((payload) =>
-      payload.desc.toLowerCase().includes(searchText.toLowerCase().trim()),
+    const filtered = transactions.filter((t) =>
+      t.desc.toLowerCase().includes(text.toLowerCase().trim())
     );
-    updateTxn(txn);
+    updateTxn(filtered);
   };
 
   useEffect(() => {
     filterData(searchText);
-  }, [props.transactions]);
+  }, [transactions]);
 
   return (
     <Container>
@@ -76,10 +88,15 @@ const Transaction = (props) => {
           filterData(e.target.value);
         }}
       />
-      {filteredTransaction?.map((payload) => (
-        <TransactionCell payload={payload} />
+      {filteredTransaction.map((payload) => (
+        <TransactionCell
+          key={payload.id}
+          payload={payload}
+          onDelete={deleteTransaction}
+        />
       ))}
     </Container>
   );
 };
+
 export default Transaction;
