@@ -9,9 +9,6 @@ Budget Tracker is a web application built with ReactJS, designed to help users t
 - **Expense Tracking**: Easily record your daily expenses with details such as category, date, and description.
 - **Budget Management**: Set monthly budgets for different expense categories and track your progress over time.
 - **Expense Categories**: Organize your expenses by categories for better management and reporting.
-
-- **Visual Reports**: Generate colorful charts and reports to visualize your spending patterns and trends.
-
 - **Responsive Design**: The app works seamlessly on both desktop and mobile devices for a consistent experience on any screen.
 
 ## Installation
