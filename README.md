@@ -14,14 +14,6 @@ React Budget Tracker is a web application built with ReactJS, designed to help u
 
 - **Responsive Design**: The app works seamlessly on both desktop and mobile devices for a consistent experience on any screen.
 
-## User Interface
-
-Here are some screenshots of the user interface for reference:
-
-![image](https://github.com/sahiljawale54/react-budget-tracker/assets/108802783/a2bc12eb-9140-432c-a5d9-98c011669bf4)
-![image](https://github.com/sahiljawale54/react-budget-tracker/assets/108802783/99a5d080-589e-4487-8ae3-378c52295122)
-![image](https://github.com/sahiljawale54/react-budget-tracker/assets/108802783/48b8f2ed-c077-45e0-8e4d-9c2162d960b6)
-
 ## Installation
 
 To get started with the app locally, follow these steps:
