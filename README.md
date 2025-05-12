@@ -1,8 +1,8 @@
-# React Budget Tracker
+#Budget Tracker
 
 ## Overview
 
-React Budget Tracker is a web application built with ReactJS, designed to help users track expenses, manage budgets, and gain insights into their spending habits. The app offers an intuitive, responsive interface to make budgeting easier and more efficient.
+Budget Tracker is a web application built with ReactJS, designed to help users track expenses, manage budgets, and gain insights into their spending habits. The app offers an intuitive, responsive interface to make budgeting easier and more efficient.
 
 ## Features
 
